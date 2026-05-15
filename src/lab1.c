@@ -1,6 +1,7 @@
 #include <stdio.h>
+#include "../include/lab1.h"
 
-int main(void)
+int pool_filling(void)
 {
   float V; //объем бассейна
   float v1; //скорость вытекания

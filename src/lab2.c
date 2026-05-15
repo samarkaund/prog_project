@@ -1,8 +1,16 @@
 #include <stdio.h>
 #include <sys/resource.h>
+#include "../include/lab2.h"
 
+int power(int x, int pw)
+{
+  for (int i = 1; i < pw; i++) {
+    x *= x;
+  }
+return x;
+}
 
-int main(void)
+int series_calc(void)
 {
 
 int N;
@@ -12,12 +20,11 @@ printf("N членов прогрессии = ");
 scanf("%d", &N);
 
 for (int i = 1; i <= N; i++) {
-  res += (float) i / ((i + 1) * (i + 1));
+  res += (float) i / power((i + 1), 2);
 }
 
 printf("Сумма равна = ");
 printf("%f\n", res);
-
 
 
 struct rusage usage;

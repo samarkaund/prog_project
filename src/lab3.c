@@ -1,6 +1,7 @@
 #include <stdio.h>
+#include "../include/lab3.h"
 
-int main(void)
+int average_word_size(void)
 {
     int c;
     int cnt = 0;
@@ -23,4 +24,5 @@ int main(void)
     }
     printf("Средня длинна слова = ");
     printf("%f\n", (float)sum / main_cnt);
+    return 0;
 }
