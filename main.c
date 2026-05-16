@@ -6,6 +6,11 @@
 #include "include/lab4.h"
 #include "include/lab5.h"
 #include "include/lab6.h"
+#include "include/lab7.h"
+#include "include/lab1_add.h"
+#include "include/lab2_add.h"
+#include "include/lab3_add.h"
+#include "include/lab4_add.h"
 
 
 void print_menu() {
@@ -17,6 +22,10 @@ void print_menu() {
   printf("5. Задание 5 (Одномерные массивы)\n");
   printf("6. Задание 6 (Проверка двумерного массива на прогрессию)\n");
   printf("7. Задание 7 (Проверка симметрии двоичного представления)\n");
+  printf("8. Задание 1 - дополнительное)\n");
+  printf("9. Задание 2 - дополнительное)\n");
+  printf("10. Задание 3 - дополнительное)\n");
+  printf("11. Задание 4 - дополнительное)\n");
   printf("0. Выход\n");
   printf("Ваш выбор: ");
 }
@@ -58,6 +67,22 @@ int main() {
           break;
         }
       case 7:{
+          check_symmetry();
+        }
+      case 8: {
+          pool_filling_add();
+          break;
+        }
+      case 9: {
+          series_calc_add();
+          break;
+        }
+      case 10: {
+          average_word_size_add();
+          break;
+        }
+      case 11: {
+          odd_exclusion_add();
           break;
         }
       case 0:{
