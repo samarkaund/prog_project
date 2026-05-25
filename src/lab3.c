@@ -22,6 +22,7 @@ int average_word_size(void)
 
         }
     }
+    clearerr(stdin);
     printf("Средня длинна слова = ");
     printf("%f\n", (float)sum / main_cnt);
     return 0;

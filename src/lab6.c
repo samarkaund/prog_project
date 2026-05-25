@@ -5,7 +5,7 @@ int check_for_progression (void) {
   int k, n;
   int i, j;
   int is_progr;
-  
+
   printf("K = ");
   scanf("%d", &k);
   printf("N = ");
@@ -22,7 +22,7 @@ int check_for_progression (void) {
       printf("%d строка - геометрическая прогрессия\n", i + 1);
     return 0;
   }
-  
+
   for (i = 0; i < k; i++){
     is_progr = 1;
 
@@ -44,6 +44,7 @@ int check_for_progression (void) {
     if (is_progr)
       printf("%d строка - геометрическая прогрессия\n", i + 1);
   }
+  clearerr(stdin);
 
   return 0;
 }

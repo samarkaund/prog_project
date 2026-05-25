@@ -14,7 +14,7 @@ int series_calc(void)
 {
 
 int N;
-float res;
+float res = 0;
 
 printf("N членов прогрессии = ");
 scanf("%d", &N);

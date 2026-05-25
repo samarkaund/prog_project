@@ -27,6 +27,6 @@ int check_symmetry() {
     printf("Двоичное представление числа симметрично\n");
   else
     printf("Двоичное представление числа несимметрично\n");
-
+clearerr(stdin);
   return 0;
 }

@@ -7,7 +7,7 @@ int series_calc_add(void)
 {
 
 int N;
-float res;
+float res = 0;
 
 printf("N членов прогрессии = ");
 scanf("%d", &N);

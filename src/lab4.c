@@ -2,46 +2,55 @@
 #include <wchar.h>
 #include <wctype.h>
 #include <locale.h>
+#include <stdlib.h>
 #include "../include/lab4.h"
-
 
 int odd_exclusion(void)
 {
     setlocale(LC_ALL, "");
 
-    wchar_t line[MAX_SIZE];
-    wchar_t out[MAX_SIZE];
+    char line_in[MAX_SIZE * 4];
+    char line_out[MAX_SIZE * 4];
+    wchar_t w_line[MAX_SIZE];
+    wchar_t w_out[MAX_SIZE];
 
-    while (fgetws(line, MAX_SIZE, stdin) != NULL) {
+    while (fgets(line_in, sizeof(line_in), stdin) != NULL) {
+
+        if (line_in[0] == '\0') {
+            break;
+        }
+
+        if (mbstowcs(w_line, line_in, MAX_SIZE) == (size_t)-1) {
+            continue;
+        }
+
         int out_idx = 0;
 
-        for (int i = 0; line[i] != L'\0'; ) {
-
-            wchar_t c = line[i];
-            if (iswalpha(line[i])) {
-
+        for (int i = 0; w_line[i] != L'\0'; ) {
+            if (iswalpha(w_line[i])) {
                 int start = i;
-                while (iswalpha(line[i]))
+                while (w_line[i] != L'\0' && iswalpha(w_line[i]))
                     i++;
                 int end = i;
                 int len = end - start;
 
                 if (len % 2 == 0) {
                     for (int j = start; j < end; j++) {
-                        out[out_idx++] = line[j];
+                        w_out[out_idx++] = w_line[j];
                     }
                 }
             } else {
-                    // для не букв
-                    out[out_idx++] = line[i];
-                    i++;
-                }
+                w_out[out_idx++] = w_line[i];
+                i++;
             }
+        }
+        w_out[out_idx] = L'\0';
 
-        out[out_idx] = L'\0';
-        wprintf(L"%ls", out);
+        if (wcstombs(line_out, w_out, sizeof(line_out)) != (size_t)-1) {
+            printf("%s", line_out);
+        }
     }
-
+    clearerr(stdin);
 
     return 0;
 }
